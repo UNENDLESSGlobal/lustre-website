@@ -10,6 +10,8 @@ export default function GlassLayer({ width, height, glassThickness, cornerRadius
       bevelEnabled: false,
       curveSegments: 24,
     })
+    // Center it along Z so its front is at +glassThickness / 2 and back at -glassThickness / 2
+    glass.translate(0, 0, -glassThickness / 2)
     glass.computeVertexNormals()
     return glass
   }, [width, height, glassThickness, cornerRadius])
@@ -18,18 +20,17 @@ export default function GlassLayer({ width, height, glassThickness, cornerRadius
     () =>
       new THREE.MeshPhysicalMaterial({
         color: '#ffffff',
-        transmission: 0.94,
+        transmission: 1,
         roughness: 0.05,
         metalness: 0,
-        ior: 1.52,
-        thickness: 0.3,
-        clearcoat: 1,
-        clearcoatRoughness: 0.05,
+        ior: 1.5,
+        thickness: glassThickness,
         reflectivity: 0.5,
         transparent: true,
+        opacity: 1, // Keep opacity 1, let transmission handle transparency
         depthWrite: false,
       }),
-    [],
+    [glassThickness],
   )
 
   return (

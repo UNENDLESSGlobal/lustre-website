@@ -1,5 +1,6 @@
 import { Suspense, useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
+import { Environment } from '@react-three/drei'
 import AnimatedModel from './AnimatedModel'
 
 function CameraAim() {
@@ -70,6 +71,7 @@ export default function ProductScene() {
         <color attach="background" args={['#f7f5f0']} />
         <CameraAim />
         <Studio />
+        <Environment preset="studio" />
         <Suspense fallback={null}>
           <AnimatedModel />
         </Suspense>

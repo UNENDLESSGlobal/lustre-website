@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import qrImage from '../../qr_image.jpeg'
 import { roundedRectShape } from './roundedRect'
 
-export default function QRPrint({ width, height, thickness, cornerRadius }) {
+export default function QRPrint({ width, height, thickness, cornerRadius, zOffset = 0 }) {
   const texture = useLoader(THREE.TextureLoader, qrImage)
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function QRPrint({ width, height, thickness, cornerRadius }) {
   }, [width, height, thickness, cornerRadius])
 
   return (
-    <mesh geometry={geometry} castShadow receiveShadow>
+    <mesh geometry={geometry} castShadow receiveShadow position={[0, 0, zOffset]}>
       <meshStandardMaterial map={texture} roughness={0.88} metalness={0} />
     </mesh>
   )
