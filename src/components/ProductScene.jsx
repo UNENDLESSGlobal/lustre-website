@@ -71,7 +71,41 @@ export default function ProductScene() {
         <color attach="background" args={['#f7f5f0']} />
         <CameraAim />
         <Studio />
-        <Environment preset="studio" />
+        
+        <Environment preset="studio" resolution={1024}>
+          <group>
+            {/* Large softbox top-front */}
+            <mesh position={[0, 8, 4]} rotation={[Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[10, 5]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+            
+            {/* Narrow vertical light strip left */}
+            <mesh position={[-4, 2, 6]} rotation={[0, Math.PI / 2, 0]}>
+              <planeGeometry args={[1, 15]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+            
+            {/* Narrow vertical light strip right */}
+            <mesh position={[4, 2, 6]} rotation={[0, -Math.PI / 2, 0]}>
+              <planeGeometry args={[1, 15]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+
+            {/* Subtle horizontal highlight below */}
+            <mesh position={[0, -3, 5]} rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[10, 0.5]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+
+            {/* Darker area behind the camera to provide contrast gaps */}
+            <mesh position={[0, 0, 15]} rotation={[0, Math.PI, 0]}>
+              <planeGeometry args={[20, 20]} />
+              <meshBasicMaterial color="#050505" />
+            </mesh>
+          </group>
+        </Environment>
+
         <Suspense fallback={null}>
           <AnimatedModel />
         </Suspense>

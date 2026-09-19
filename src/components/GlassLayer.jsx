@@ -21,11 +21,13 @@ export default function GlassLayer({ width, height, glassThickness, cornerRadius
       new THREE.MeshPhysicalMaterial({
         color: '#ffffff',
         transmission: 1,
-        roughness: 0.05,
+        roughness: 0.02,
         metalness: 0,
         ior: 1.5,
         thickness: glassThickness,
         reflectivity: 0.5,
+        clearcoat: 1,
+        clearcoatRoughness: 0.02,
         transparent: true,
         opacity: 1, // Keep opacity 1, let transmission handle transparency
         depthWrite: false,
