@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');
+
+:root { font-family: 'DM Sans', Arial, sans-serif; color: #24221f; background: #f7f5f0; font-synthesis: none; }
+* { box-sizing: border-box; }
+html { background: #f7f5f0; scroll-behavior: smooth; }
+body { margin: 0; overflow-x: hidden; background: #f7f5f0; }
+a { color: inherit; text-decoration: none; }
+.hero-scroll { height: 630vh; position: relative; }
+.hero-sticky { height: 100vh; min-height: 640px; overflow: hidden; position: relative; background: #f7f5f0; }
+.topbar { position: absolute; z-index: 5; inset: 0 0 auto; height: 90px; padding: 0 4.6vw; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-size: 20px; letter-spacing: -.06em; font-weight: 600; }
+.brand span { position: relative; display: block; width: 13px; height: 13px; border: 2px solid #272520; border-radius: 4px; transform: rotate(45deg); }
+.brand span::after { content: ''; position: absolute; inset: 3px; width: 3px; height: 3px; border-radius: 50%; background: #272520; }
+.nav-note { color: #777168; font: 10px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
+.product-canvas { position: absolute; z-index: 1; inset: 0; }
+.scene-labels { position: absolute; z-index: 3; inset: 0; pointer-events: none; }
+.scene-label { position: absolute; display: flex; flex-direction: column; gap: 8px; opacity: 0; visibility: hidden; transform: translateY(12px); color: #332f29; }
+.scene-label strong { font-size: clamp(18px, 1.55vw, 25px); font-weight: 500; letter-spacing: -.045em; }
+.scene-label span { color: #777168; font: 10px 'DM Mono', monospace; letter-spacing: .04em; text-transform: uppercase; }
+.label-glass { top: 29%; left: 8.2vw; }
+.label-corner { right: 9vw; bottom: 24%; text-align: right; align-items: flex-end; }
+.label-material { top: 38%; left: 8.2vw; }
+.label-app { top: 25%; right: 9vw; text-align: right; align-items: flex-end; }
+.scroll-cue { position: absolute; z-index: 4; bottom: 35px; left: 4.6vw; display: flex; align-items: center; gap: 11px; color: #777168; font: 10px 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
+.scroll-cue span { display: block; width: 32px; height: 1px; background: #777168; }
+.hero-index { position: absolute; z-index: 4; right: 4.6vw; bottom: 33px; color: #777168; font: 10px 'DM Mono', monospace; }
+
+@media (max-width: 760px) {
+  .hero-scroll { height: 560vh; }
+  .hero-sticky { min-height: 570px; }
+  .topbar { height: 70px; padding: 0 6vw; }
+  .brand { font-size: 18px; }
+  .nav-note { font-size: 8px; }
+  .scene-label { max-width: 78vw; }
+  .scene-label strong { font-size: 17px; }
+  .scene-label span { font-size: 8px; line-height: 1.5; }
+  .label-glass { top: 18%; left: 6vw; }
+  .label-corner { right: 6vw; bottom: 19%; }
+  .label-material { top: 21%; left: 6vw; }
+  .label-app { top: 17%; right: 6vw; }
+  .scroll-cue { left: 6vw; bottom: 20px; font-size: 8px; }
+  .hero-index { right: 6vw; bottom: 19px; font-size: 8px; }
+}
