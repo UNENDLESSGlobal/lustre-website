@@ -1,0 +1,174 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Fixed height stops vertical shifting */
+  padding: 0 6vw;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none; /* Let clicks pass through empty spaces to the 3D scene */
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  pointer-events: auto;
+  justify-self: start;
+}
+
+.nav-center {
+  pointer-events: auto;
+  justify-self: center;
+  width: 100%;
+  min-width: 300px;
+}
+
+.nav-logo-placeholder {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #24221f;
+  opacity: 0.15;
+}
+
+.nav-company-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+  color: #24221f;
+  text-transform: lowercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  pointer-events: auto;
+  justify-self: end;
+}
+
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #8a837a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #24221f;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 105;
+  pointer-events: auto;
+  justify-self: end;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: #24221f;
+  transition: all 0.3s ease;
+  transform-origin: left;
+}
+
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 2rem 2rem;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+  pointer-events: auto;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-search {
+  display: none;
+  margin-bottom: 2rem;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobile-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #8a837a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link.active {
+  color: #24221f;
+  font-weight: 600;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .desktop-links {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-search {
+    display: none !important; /* Completely hide the in-menu search */
+  }
+
+  /* Make navbar a 3-column layout on mobile so the search bar sits in the middle */
+  .navbar {
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+  }
+  
+  .nav-center {
+    min-width: 0; /* allow shrinking on narrow mobile screens */
+    padding: 0 0.5rem;
+  }
+}

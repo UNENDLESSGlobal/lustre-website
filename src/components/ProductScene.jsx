@@ -68,7 +68,7 @@ export default function ProductScene() {
         }}
         gl={{ antialias: true, alpha: true }}
       >
-        <color attach="background" args={['#f7f5f0']} />
+        <color attach="background" args={['#d2d2d7']} />
         <CameraAim />
         <Studio />
         

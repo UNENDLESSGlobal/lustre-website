@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import ProductScene from '../components/ProductScene'
 import FeatureLabel from '../components/FeatureLabel'
 import ScrollHint from '../components/ScrollHint'
+import Navbar from '../components/Navbar'
 import { setScrollProgress } from '../utils/scrollProgress'
 
 export default function Home() {
@@ -24,6 +25,8 @@ export default function Home() {
 
   return (
     <main className="product-page">
+      <Navbar />
+
       {/* Fixed full-viewport 3D canvas */}
       <div className="canvas-fixed">
         <ProductScene />
@@ -34,14 +37,24 @@ export default function Home() {
         position="right"
         title="Rounded Corners"
         subtitle="Precision-cut with smooth, refined edges"
-        visibleRange={[0.18, 0.52]}
+        visibleRange={[0.25, 0.46]}
+        className="rounded-corners-label"
       />
 
       <FeatureLabel
         position="left"
         title="Durable"
         subtitle="6 mm sunboard built to last"
-        visibleRange={[0.58, 0.95]}
+        visibleRange={[0.6, 0.77]}
+        className="durable-label"
+      />
+
+      <FeatureLabel
+        position="left"
+        title="Connect to App"
+        subtitle="Seamless integration with your devices"
+        visibleRange={[0.85, 1.0]}
+        className="connect-to-app-label"
       />
 
       {/* Scroll discovery hint */}

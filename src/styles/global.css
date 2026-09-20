@@ -4,7 +4,7 @@
 
 :root {
   color: #24221f;
-  background: #f7f5f0;
+  background: #d2d2d7;
   font-family: 'Inter', Arial, sans-serif;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
@@ -23,8 +23,8 @@ body,
 
 body {
   overflow-x: hidden;
-  overflow-y: auto;
-  background: #f7f5f0;
+  overflow-y: scroll;
+  background: #d2d2d7;
 }
 
 /* ——— Page layout ——— */
@@ -120,22 +120,22 @@ body {
 .feature-label h2 {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.5rem, 8vw, 6rem); /* Much bigger on desktop */
   line-height: 1.1;
   color: #24221f;
   margin: 0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 /* Subtitle */
 .feature-label p {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   line-height: 1.5;
   color: #8a837a;
-  margin: 0.65rem 0 0;
-  max-width: 300px;
+  margin: 0.85rem 0 0;
+  max-width: 450px;
 }
 
 .feature-label-right p {
@@ -184,4 +184,58 @@ body {
 @keyframes scroll-bounce {
   0%, 100% { transform: rotate(45deg) translateY(0); }
   50%      { transform: rotate(45deg) translateY(5px); }
+}
+
+/* Specific modifier for the Connect to App label */
+.connect-to-app-label h2 {
+  font-size: clamp(1.5rem, 5vw, 4rem) !important; /* Smaller on desktop */
+}
+
+@media (max-width: 768px) {
+  .connect-to-app-label.feature-label {
+    top: auto !important;
+    bottom: 12% !important; /* Below the 3D model */
+    left: 50% !important;
+    text-align: center !important;
+    transform: translateY(20px) translateX(-50%) !important;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .connect-to-app-label.feature-label.visible {
+    transform: translateY(0) translateX(-50%) !important;
+  }
+
+  .connect-to-app-label .feature-label-line {
+    margin: 0 auto 1rem auto !important;
+  }
+  
+  .connect-to-app-label p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Specific modifier for the Rounded Corners label on mobile */
+  .rounded-corners-label.feature-label {
+    top: 15% !important; /* Above the 3D model */
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translateY(-20px) translateX(-50%) !important;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .rounded-corners-label.feature-label.visible {
+    transform: translateY(0) translateX(-50%) !important;
+  }
+
+  .rounded-corners-label .feature-label-line {
+    margin: 0 auto 1rem auto !important;
+  }
+  
+  .rounded-corners-label p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

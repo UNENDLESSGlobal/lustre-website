@@ -9,7 +9,7 @@ import { getScrollProgress } from '../utils/scrollProgress'
  * @param {string} subtitle  - Optional supporting text
  * @param {[number,number]} visibleRange - [fadeIn, fadeOut] scroll progress values (0–1)
  */
-export default function FeatureLabel({ position, title, subtitle, visibleRange }) {
+export default function FeatureLabel({ position, title, subtitle, visibleRange, className = '' }) {
   const ref = useRef()
   const [start, end] = visibleRange
 
@@ -41,7 +41,7 @@ export default function FeatureLabel({ position, title, subtitle, visibleRange }
   }, [start, end])
 
   return (
-    <div ref={ref} className={`feature-label feature-label-${position}`}>
+    <div ref={ref} className={`feature-label feature-label-${position} ${className}`}>
       <div className="feature-label-line" />
       <h2>{title}</h2>
       {subtitle && <p>{subtitle}</p>}
